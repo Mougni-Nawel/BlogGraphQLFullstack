@@ -24,7 +24,7 @@ const ProfilCard = ({ post }) => {
     console.log('IN handledelete');
     try {
       const { data } = await deletePost({ variables: { id: post.id } });
-      console.log('Test : '+data.deletePost);
+      console.log('Test : '+JSON.stringify(data.deletePost));
       if (data.deletePost.success) {
         window.location = '/';
       } else {
