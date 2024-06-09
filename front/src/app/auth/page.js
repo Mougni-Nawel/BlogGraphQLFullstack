@@ -6,7 +6,7 @@ import { LOGIN } from "@/graphql/mutations";
 import Link from 'next/link';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
@@ -15,7 +15,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await login({ variables: { username, password } });
+      const { data } = await login({ variables: { email, password } });
       console.log('Login successful', data);
 
       localStorage.setItem('userId', data.login.id);
@@ -23,7 +23,7 @@ const Login = () => {
       window.location.href = '/';
     } catch (error) {
       console.error('Error logging in:', error);
-      setError('Invalid username or password');
+      setError('Invalid email or password');
     }
   };
 
@@ -37,18 +37,18 @@ const Login = () => {
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700">
-                Username
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                Email
               </label>
               <div className="mt-1">
                 <input
-                  id="username"
-                  name="username"
+                  id="email"
+                  name="email"
                   type="text"
-                  autoComplete="username"
+                  autoComplete="email"
                   required
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  value={username}
+                  value={email}
                   onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
