@@ -21,8 +21,10 @@ const ProfilCard = ({ post }) => {
   }, []);
 
   const handleDelete = async () => {
+    console.log('IN handledelete');
     try {
       const { data } = await deletePost({ variables: { id: post.id } });
+      console.log('Test : '+data.deletePost);
       if (data.deletePost.success) {
         window.location = '/';
       } else {
