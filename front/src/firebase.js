@@ -12,7 +12,7 @@ firebase.initializeApp({
     apiKey: process.env.KEY,
     authDomain: process.env.DOMAINE,
     projectId: process.env.PROJECTID,
-    storageBucket: process.env.STORAGEBUCKET,
+    storageBucket: "blog-d1787.appspot.com",
     messagingSenderId: process.env.MESSAGINGSENDERID,
     appId: process.env.APPID
 });
