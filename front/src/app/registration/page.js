@@ -22,6 +22,7 @@ const Registration = () => {
         return;
       }
       const { data } = await saveUser({ variables: { username, password, email } });
+      window.location.href = '/auth';
     } catch (error) {
       console.error('Error logging in:', error);
       setError('Invalid username or password');
