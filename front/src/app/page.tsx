@@ -4,6 +4,7 @@ import ProfilCard from "@/components/UI/ProfilCard";
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { PencilIcon, PlusIcon } from '@heroicons/react/solid';
+require('dotenv').config();
 
 interface Post {
   id: string;
@@ -22,7 +23,7 @@ export default function Home() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/posts');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/api/posts`);
         const data = await response.json();
         setPosts(data.results);
       } catch (error) {
